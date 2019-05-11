@@ -52,14 +52,15 @@ function App() {
               <TriangleTooltip
                 key={`${type}:1`}
                 label={<strong>{value}</strong>}
-                ariaLabel={value.toString()}
+                ariaLabel={`${value} ${type} email messages`}
               >
                 <Progress
                   bar
                   now={value}
                   max={emailTotal}
                   variant={colorMap[type]}
-                  style={{ minWidth: '8px' }}
+                  style={{ minWidth: value > 0 && '8px' }}
+                  tabIndex={0}
                 />
               </TriangleTooltip>
             ))}
@@ -72,14 +73,15 @@ function App() {
               <TriangleTooltip
                 key={`${type}:2`}
                 label={<strong>{value}</strong>}
-                ariaLabel={value.toString()}
+                ariaLabel={`${value} ${type} sms messages`}
               >
                 <Progress
                   bar
                   now={value}
                   max={smsTotal}
                   variant={colorMap[type]}
-                  style={{ minWidth: '8px' }}
+                  style={{ minWidth: value > 0 && '8px' }}
+                  tabIndex={0}
                 />
               </TriangleTooltip>
             ))}
